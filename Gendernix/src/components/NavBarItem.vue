@@ -17,8 +17,4 @@ const props = defineProps(['text', 'to'])
 .v-btn--active, .v-btn:active {
     background-color: rgb(var(--v-theme-accent)) !important;
 }
-
-
-@media (min-width: 1024px) {
-}
 </style>

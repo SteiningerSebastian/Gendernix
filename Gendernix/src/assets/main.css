@@ -1,10 +1,9 @@
 @import './base.css';
 
 #app {
-  margin: 6em;
-  margin-top: 3em;
-  font-weight: normal;
-  vertical-align: text-top;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
 }
 
 @media (hover: hover) {

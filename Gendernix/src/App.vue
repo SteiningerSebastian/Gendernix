@@ -1,33 +1,31 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
+import LanguageSelector from './components/LanguageSelector.vue'
+
+//Import icons
 import logo from './assets/logo.svg'
 import NavBarItem from './components/NavBarItem.vue'
+import TitleIcon from './components/TitleIcon.vue'
 </script>
 
+<!-- The application layout was inspired by https://vuetifyjs.com/en/features/application-layout/#complex-layouts -->
 <template>
-  <v-layout ref="app" class="rounded rounded-md">
+  <v-layout ref="app" class="rounded rounded" style="width: 100vw">
     <v-app-bar height="50" app>
       <v-app-bar-nav-icon
         class="hidden-lg-and-up"
         @click.stop="drawer = !drawer"
       ></v-app-bar-nav-icon>
-      <v-img
-        class="mx-2 hidden-md-and-down"
-        :src="logo"
-        max-width="36"
-        max-height="36"
-        contain
-      ></v-img>
-      <v-toolbar-title class="ml-2">
-        <span class="hidden-md-and-down" width="6.35em" style="padding-inline-end: 142px"
-          >Gendernix</span
-        >
+      <div class="hidden-md-and-down ps-4" style="padding-inline-end: 87px"><TitleIcon /></div>
+      <v-toolbar-title>
         <span>
           <NavBarItem :text="$t('nav.home')" to="/" />
           <NavBarItem :text="$t('nav.gender')" to="/gender" />
           <NavBarItem :text="$t('nav.text')" to="/text" />
         </span>
       </v-toolbar-title>
+      <span class="hidden-md-and-down pe-3 pt-2"><LanguageSelector /></span>
     </v-app-bar>
     <v-navigation-drawer
       width="300"
@@ -37,32 +35,9 @@ import NavBarItem from './components/NavBarItem.vue'
       expand-on-hover
       clipped
       app
-    >
-      <div>
+      ><v-container>
         <!-- The Logo and Title of the Website -->
-        <div
-          class="hidden-lg-and-up"
-          width="fit-content"
-          style="
-            font-size: 1.5em;
-            vertical-align: middle;
-            justify-content: center;
-            height: 36px;
-            padding-top: 0.5em;
-            padding-left: 0.75em;
-          "
-        >
-          <div style="width: 64px; padding: 0; float: left">
-            <v-img
-              class="mx-2 hidden-lg-and-up"
-              :src="logo"
-              max-width="36"
-              max-height="36"
-              contain
-            />
-          </div>
-          Gendernix
-        </div>
+        <div class="pl-3 pt-5 hidden-lg-and-up"><TitleIcon /></div>
 
         <ul class="navList">
           <li>
@@ -109,17 +84,28 @@ import NavBarItem from './components/NavBarItem.vue'
             </ul>
           </li>
         </ul>
-      </div>
+        <div
+          class="hidden-lg-and-up"
+          style="position: absolute; bottom: 0; margin-inline-start: 215px"
+        >
+          <LanguageSelector />
+        </div>
+      </v-container>
     </v-navigation-drawer>
 
-    <v-main class="d-flex align-center justify-center">
-      <RouterView />
+    <!-- The content of the app, teh RouterView -->
+    <v-main app>
+      <v-container class="mainContainer">
+        <RouterView />
+      </v-container>
     </v-main>
 
     <v-footer height="50" app name="footer">
-      <RouterLink class="aLink" to="/imprint">{{ $t('footer.imprint') }}</RouterLink>
-      <RouterLink class="aLink" to="/imprint">{{ $t('footer.contact') }}</RouterLink>
-      <RouterLink class="aLink" to="/imprint">{{ $t('footer.dataprotection') }}</RouterLink>
+      <v-container>
+        <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.imprint') }}</RouterLink>
+        <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.contact') }}</RouterLink>
+        <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.dataprotection') }}</RouterLink>
+      </v-container>
     </v-footer>
   </v-layout>
 </template>
@@ -128,7 +114,6 @@ import NavBarItem from './components/NavBarItem.vue'
 .aLink {
   color: rgb(var(--v-theme-text));
   text-decoration: none;
-  padding: 0 1em 0 1em;
 }
 
 .aLink:hover {
@@ -137,12 +122,11 @@ import NavBarItem from './components/NavBarItem.vue'
 
 .navList {
   vertical-align: top;
-  text-align: start;
   margin: 0;
   padding: 0;
   font-size: 1.25em;
   margin-top: 1.5em;
-  margin-left: 1.25em;
+  margin-inline-start: 1.25em;
   width: 100%;
   height: fit-content;
 }
@@ -153,19 +137,30 @@ import NavBarItem from './components/NavBarItem.vue'
 
 .navList li ul li {
   list-style: disc;
-  margin-left: 2em;
+  margin-inline-start: 3em;
+  padding: 0 !important;
   font-size: 0.75em;
 }
 
 .navigation-drawer {
-  border-right: none;
+  border-inline-end: none;
+}
+
+.mainContainer {
+  position: relative;
+  padding: 6em;
+  padding-top: 3em;
 }
 
 @media only screen and (max-width: 1280px) {
   .navigation-drawer {
-    border-right: 1px solid rgb(var(--v-theme-tertiary));
+    border-inline-end: 1px solid rgb(var(--v-theme-tertiary));
     border-top: 1px solid rgb(var(--v-theme-tertiary));
     border-bottom: 1px solid rgb(var(--v-theme-tertiary));
+  }
+
+  .mainContainer {
+    padding: 2em;
   }
 }
 </style>
