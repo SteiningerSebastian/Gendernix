@@ -4,6 +4,15 @@ import HomeView from '../views/HomeView.vue'
 //This code is inspired by the default code provided by vue.
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  //Inspired by https://router.vuejs.org/guide/advanced/scroll-behavior.html
+  scrollBehavior(to) {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth',
+      }
+    }
+  },
   routes: [
     {
       path: '/',

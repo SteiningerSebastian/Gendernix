@@ -16,6 +16,7 @@ body {
   line-height: 1.6;
   font-family: 'M PLUS 1p';
   font-size: 1em;
+  font-weight: 400 !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

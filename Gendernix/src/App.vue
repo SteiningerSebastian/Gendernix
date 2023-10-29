@@ -37,7 +37,7 @@ import TitleIcon from './components/TitleIcon.vue'
       app
       ><v-container>
         <!-- The Logo and Title of the Website -->
-        <div class="pl-3 pt-5 hidden-lg-and-up"><TitleIcon /></div>
+        <div class="ps-3 pt-5 hidden-lg-and-up"><TitleIcon /></div>
 
         <ul class="navList">
           <li>
@@ -95,9 +95,7 @@ import TitleIcon from './components/TitleIcon.vue'
 
     <!-- The content of the app, teh RouterView -->
     <v-main app>
-      <v-container class="mainContainer">
         <RouterView />
-      </v-container>
     </v-main>
 
     <v-footer height="50" app name="footer">
@@ -146,21 +144,11 @@ import TitleIcon from './components/TitleIcon.vue'
   border-inline-end: none;
 }
 
-.mainContainer {
-  position: relative;
-  padding: 6em;
-  padding-top: 3em;
-}
-
 @media only screen and (max-width: 1280px) {
   .navigation-drawer {
     border-inline-end: 1px solid rgb(var(--v-theme-tertiary));
     border-top: 1px solid rgb(var(--v-theme-tertiary));
     border-bottom: 1px solid rgb(var(--v-theme-tertiary));
-  }
-
-  .mainContainer {
-    padding: 2em;
   }
 }
 </style>

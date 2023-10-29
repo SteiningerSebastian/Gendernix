@@ -13,5 +13,21 @@ export default {
   'nav.drawer.text': 'Texte',
   'nav.drawer.text.coffeemaker': 'Kafeemaschine',
   'nav.drawer.text.editor': 'Textverarbeitung',
-  'nav.drawer.text.tabCalc': 'Tabellenkalkulation'
+  'nav.drawer.text.tabCalc': 'Tabellenkalkulation',
+  'home.gendernix.heading': 'Gendernix',
+  'home.gendernix.getstarted':'Get Started',
+  'home.gendernix.text1': 'Gendern, gefordert von manchen verhasst von Anderen. Gendernix ist ein Web-Frontend für ein Content-Management-System (CMS) das dieses Problem automatisiert löst. Bevor die Texte den Nutzern angezeigt werden, wird eine Gender-Gerechte schreibweiße der Texte sichergestellt.',
+  'home.gendernix.card.justice.heading':'Gerechtigkeit',
+  'home.gendernix.card.justice.text':'Die Gleichberechtigung verlangt eine Gender-Gerechte Schreibweise, es ist eine Frage der Gerechtigkeit!',
+  'home.gendernix.card.editor.heading':'Textbearbeitung',
+  'home.gendernix.card.editor.text':'Bevor Texte veröffentlicht werden, können sie mit Gendernix Gendergerecht überarbeitet werden.',
+  'home.gendernix.card.internationalisation.heading':'International',
+  'home.gendernix.card.internationalisation.text':'Gendernix gibt es als Web-Frontend in verschiedenen Sprachen und kann vortlaufend erweitert werden.',
+  'home.getstarted.tool.heading':'Online-Tool',
+  'home.getstarted.tool.text':' Der einfachste Weg Gendernix in Ihren Workflow zu integrieren ist bereits die Texte mit dem Online-Tool zu gendern die Sie in Ihr CMS eingeben.',
+  'home.getstarted.cms.heading':'CMS',
+  'home.getstarted.cms.text':'  Um Gendernix in ein CMS zu integrieren kontaktieren Sie Ihre zuständige IT-Abteilung. Ihre IT-Abteilung kann anschließend mit uns Kontakt aufnehmen, um weitere Informationen und Hilfe bei der Einführung zu erhalten.',
+  'home.getstarted.tool.btn': 'Zum Online Tool',
+  'home.getstarted.cms.btn': 'Mehr Erfahren',
+
 }
