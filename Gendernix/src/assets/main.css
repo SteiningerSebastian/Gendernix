@@ -6,9 +6,52 @@
   justify-content: center;
 }
 
+a{
+  text-decoration: none;
+  color: rgb(var(--v-theme-text));
+}
+
 .mainContent{
   width:77%;
   margin: auto !important;
+}
+
+.v-btn {
+  text-transform: none !important;
+  font-size: 1em !important;
+  padding-left: 1.2em !important;
+  padding-right: 1.2em !important;
+  background-color: rgb(var(--v-theme-tertiary)) !important;
+}
+
+.v-btn:hover {
+  background-color: rgb(var(--v-theme-accent)) !important;
+  text-decoration: underline;
+}
+
+h1{
+  font-weight: bolder;
+  font-size: 2.25em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+h2{
+  font-weight:bold;
+  font-size: 2em;
+  margin-top: 1.75em;
+  margin-bottom: 0.75em;
+}
+h3{
+  font-weight:normal;
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+h4{
+  font-weight:normal;
+  font-size: 1.25em;
+  margin-top: 0.75em;
+  margin-bottom: 0.36em;
 }
 
 @media (hover: hover) {

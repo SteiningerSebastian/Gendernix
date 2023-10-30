@@ -28,6 +28,11 @@ const router = createRouter({
       path: '/text',
       name: 'text',
       component: () => import('../views/TextView.vue')
+    },
+    {
+      path: '/imprint',
+      name: 'imprint',
+      component: () => import('../views/Imprintview.vue')
     }
   ]
 })

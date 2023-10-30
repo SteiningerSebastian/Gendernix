@@ -74,17 +74,6 @@ import inclusivityImage from '../assets/inclusivity.jpg'
 </template>
 
 <style scoped>
-.v-btn {
-  text-transform: none !important;
-  font-size: 1em !important;
-  padding-left: 1.2em !important;
-  padding-right: 1.2em !important;
-  background-color: rgb(var(--v-theme-tertiary)) !important;
-}
-
-.v-btn:hover {
-  background-color: rgb(var(--v-theme-accent)) !important;
-}
 
 h4 {
   font-size: 1.25em;

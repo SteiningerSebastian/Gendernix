@@ -5,13 +5,14 @@ const props = defineProps(['heading', 'padding-top'])
   <div class="container">
     <div class="line"></div>
     <div class="accentBox">
-      <h4>{{ props.heading }}</h4>
+      <h4 class="ma-0">{{ props.heading }}</h4>
     </div>
     <div class="line"></div>
   </div>
 </template>
 <style scoped>
 .accentBox {
+  display: inline-block;
   background-color: rgb(var(--v-theme-accent));
   width: fit-content;
   padding: 0.25em 0.5em;
@@ -21,6 +22,7 @@ const props = defineProps(['heading', 'padding-top'])
   margin: auto;
   text-wrap: nowrap;
   word-break: keep-all;
+  white-space: nowrap;
 }
 
 .container{

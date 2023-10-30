@@ -29,5 +29,11 @@ export default {
   'home.getstarted.cms.text':'  Um Gendernix in ein CMS zu integrieren kontaktieren Sie Ihre zuständige IT-Abteilung. Ihre IT-Abteilung kann anschließend mit uns Kontakt aufnehmen, um weitere Informationen und Hilfe bei der Einführung zu erhalten.',
   'home.getstarted.tool.btn': 'Zum Online Tool',
   'home.getstarted.cms.btn': 'Mehr Erfahren',
+  'gendertool.heading': 'Gendernix',
+  'gendertool.btnGender.text': 'Gendern',
+  'gendertool.result': 'Ergebnis',
+  'imprint.heading':'Impressum',
+  'imprint.content.IUInfo': 'Diese Webseite ist das Resultat einer Fallstudie an der IU Internationale Hochschule die ichim Rahmen meines Studiums BSc. Softwareentwicklung erstellt habe. Es handelt sich hierbei um keine gewerblich betriebene Webseite.',
+  'imprint.heading.contact':'Kontakt'
 
 }

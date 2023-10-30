@@ -102,13 +102,17 @@ import TitleIcon from './components/TitleIcon.vue'
       <v-container>
         <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.imprint') }}</RouterLink>
         <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.contact') }}</RouterLink>
-        <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.dataprotection') }}</RouterLink>
+        <a class="aLink pe-6" :href="$i18n.locale == 'de'?'/Datenschutzerklaerung.pdf':'/PrivacyPolicy.pdf'" target="_blank">{{ $t('footer.dataprotection') }}</a>
       </v-container>
     </v-footer>
   </v-layout>
 </template>
 
 <style scoped>
+.v-btn--icon{
+  background-color: #00000000 !important;
+}
+
 .aLink {
   color: rgb(var(--v-theme-text));
   text-decoration: none;

@@ -12,6 +12,7 @@ const props = defineProps(['text', 'to'])
     font-size: 1em !important;
     padding-left: 1.2em !important;
     padding-right: 1.2em !important;
+    background-color: rgba(0,0,0,0) !important;
 }
 
 .v-btn--active, .v-btn:active {
