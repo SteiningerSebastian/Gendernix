@@ -17,9 +17,9 @@ function changeLocale(locale) {
 
 <template>
   <!-- The menue is inspired by: https://vuetifyjs.com/en/components/menus/#open-on-hover -->
-  <v-menu open-on-hover>
+  <v-menu open-on-hover open-on-click>
     <template v-slot:activator="{ props }">
-      <div v-bind="props" class="languageMenue">
+      <div v-bind="props" class="languageMenu">
         <div
           style="
             flex: 1;
@@ -59,12 +59,13 @@ function changeLocale(locale) {
   border: 1px solid rgb(var(--v-theme-tertiary));
 }
 
-.languageMenue {
+.languageMenu {
   cursor: pointer;
   display: flex;
 }
 
-.languageMenue:hover{
+.languageMenu:hover{
   text-decoration: underline;
 }
+
 </style>

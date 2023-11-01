@@ -1,8 +1,8 @@
 @import './base.css';
 
 #app {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   justify-content: center;
 }
 
@@ -14,6 +14,14 @@ a{
 .mainContent{
   width:77%;
   margin: auto !important;
+  padding-bottom: 9em;
+  height: fit-content;
+}
+
+/* Fix the vuetify issue about navigation-drawer not closing because overlay to small and not fixed. */
+.v-navigation-drawer__scrim{
+  height: 100vh;
+  position:fixed !important;
 }
 
 .v-btn {
@@ -63,6 +71,6 @@ h4{
 @media (max-width: 1280px) {
   .mainContent{
     width:95%;
-    margin: auto !important;
+    padding-bottom: 3em;
   }
 }

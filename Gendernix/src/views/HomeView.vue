@@ -13,8 +13,8 @@ import inclusivityImage from '../assets/inclusivity.jpg'
     <v-container>
       <section id="gendernix" class="pt-6">
         <SectionHeader :heading="$t('home.gendernix.heading')" />
-        <v-container class="ps-0 pt-5 pb-3">{{ $t('home.gendernix.text1') }}</v-container>
-        <v-container class="ps-0 cardcontainer">
+        <v-container class="ps-0 pe-0 pt-5 pb-3">{{ $t('home.gendernix.text1') }}</v-container>
+        <v-container class="ps-0 pe-0 cardcontainer">
           <InfoCardHome
             :title="$t('home.gendernix.card.justice.heading')"
             :text="$t('home.gendernix.card.justice.text')"
@@ -40,7 +40,7 @@ import inclusivityImage from '../assets/inclusivity.jpg'
         <SectionHeader :heading="$t('nav.drawer.home.getStarted')" />
         <v-container class="pa-0 colContainer pb-0">
           <v-container class="colHome ps-0">
-            <v-container class="ps-0">
+            <v-container class="ps-0 pe-0">
               <h4 class="pb-2">{{ $t('home.getstarted.tool.heading') }}</h4>
               {{ $t('home.getstarted.tool.text') }}
             </v-container>
@@ -48,8 +48,8 @@ import inclusivityImage from '../assets/inclusivity.jpg'
               $t('home.getstarted.tool.btn')
             }}</v-btn>
           </v-container>
-          <v-container class="colHome ps-0">
-            <v-container class="ps-0">
+          <v-container class="colHome ps-0 ">
+            <v-container class="ps-0  pe-0">
               <h4 class="pb-2">{{ $t('home.getstarted.cms.heading') }}</h4>
               {{ $t('home.getstarted.cms.text') }}</v-container
             >

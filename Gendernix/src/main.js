@@ -19,6 +19,26 @@ import de from './locales/de'
 import en from './locales/en'
 import ar from './locales/ar'
 
+//Import custom js.
+import { IOCContainer } from "./lib/IOCContainer";
+import { XSSProtector } from './lib/XSSProtector';
+import { StaticTextProvider } from './lib/StaticTextProvider';
+import { TextPostProcessor } from './lib/TextPostProcessor';
+import {XSSMiddleware} from './lib/XSSMiddleware';
+
+//Register IOCContainer elements
+const ioc = IOCContainer.instance;
+
+//register the XSSProtector as singelton, implementation can be exchanged here.
+ioc.registerSingelton("IXSSProtector", new XSSProtector())
+//register the textprovider as transient to dispose it if not needed, future db-connection. 
+ioc.registerTransient("ITextProvider", () => { return new StaticTextProvider() })
+
+const tpp = new TextPostProcessor();
+tpp.useMiddleware(new XSSMiddleware())
+ioc.registerSingelton("ITextPostProcessor", tpp)
+
+
 // The const for all imports for internationilasitation.
 export const messages = { de, en, ar }
 

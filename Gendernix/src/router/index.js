@@ -25,9 +25,14 @@ const router = createRouter({
       component: () => import('../views/GenderToolView.vue')
     },
     {
-      path: '/text',
+      path: '/text/:id',
       name: 'text',
       component: () => import('../views/TextView.vue')
+    },
+    {
+      path: '/textsearch',
+      name: 'textsearch',
+      component: () => import('../views/TextSearchView.vue')
     },
     {
       path: '/imprint',
