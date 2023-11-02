@@ -23,16 +23,17 @@ function getNextEqualIndexes(arrn, arrm, n, m) {
   let mequal = Number.MAX_SAFE_INTEGER
   //Go through the array and search from the start position for the next equal words.
   //Stop the loop if no more indexes to check or all checked indexes would be larger than what was already found.
-  for (let ni = n; ni < arrn.length && (ni - n) < (nequal - n); ni++) {
+  for (let ni = n; ni < arrn.length && ni - n < nequal - n + mequal - m; ni++) {
+    //&& (ni - n) < (nequal - n);
     for (
       let mi = m;
       //Stop the loop if no more indexes to check or all checked indexes would be larger than what was already found.
-      mi < arrm.length && (ni - n + mi - m) < (nequal - n + mequal - m);
+      mi < arrm.length && ni - n + mi - m < nequal - n + mequal - m;
       mi++
     ) {
       if (arrn[ni] === arrm[mi]) {
         //Found a equal word that is closer to the start position than the current found equal word.
-        if ((nequal - n + mequal - m) > (ni - n + mi - m)) {
+        if (nequal - n + mequal - m > ni - n + mi - m) {
           nequal = ni
           mequal = mi
         }
@@ -59,6 +60,8 @@ function compareAndHighlightDifference(text1, text1Raw, text2) {
     if (wordsText1[i] !== wordsText2[j]) {
       const e = getNextEqualIndexes(wordsText1, wordsText2, i, j)
 
+      console.log(e, wordsTest1Raw[e.n], wordsTest1Raw[e.m])
+
       //Add to the end indexes.
       let end = start - 1
       for (let iEnd = i; iEnd < e.n && e.n < wordsTest1Raw.length; iEnd++) {
@@ -81,6 +84,7 @@ function compareAndHighlightDifference(text1, text1Raw, text2) {
       start += wordsTest1Raw[c].length + 1
     }
   }
+  console.log(highlights.value)
 }
 
 //Inspired by https://bobbyhadz.com/blog/navigator-clipboard-is-undefined-in-javascript
