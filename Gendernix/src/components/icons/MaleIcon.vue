@@ -1,7 +1,7 @@
 <template>
   <!-- Copied from iconfinder.com and edited
   Author: Bootstrap Icons
-  https://cdn1.iconfinder.com/data/icons/bootstrap-vol-3/16/gender-male-512.png 
+  https://www.iconfinder.com/icons/9040416/gender_male_icon
   License: https://opensource.org/license/mit/-->
   <svg
     class="bi bi-gender-male"

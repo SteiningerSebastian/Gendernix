@@ -6,9 +6,8 @@ export class DicGenderMiddleware {
         ' die Anwender': ' die Anwender*innen',
         ' der Benutzer': ' der/die Benutzer*in',
         ' die Benutzer': ' die Benutzer*innen',
-        'Autoren':'Autor*innen',
-        'Sehr geehrter ': 'Sehr geehrte ',
-        'Nutzer': 'Nutzer*innen'
+        'Autoren': 'Autor*innen',
+        'Sehr geehrter ': 'Sehr geehrte '
     }
 
     /**
