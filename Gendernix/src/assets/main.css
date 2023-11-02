@@ -6,22 +6,22 @@
   justify-content: center;
 }
 
-a{
+a {
   text-decoration: none;
   color: rgb(var(--v-theme-text));
 }
 
-.mainContent{
-  width:77%;
+.mainContent {
+  width: 77%;
   margin: auto !important;
   padding-bottom: 9em;
   height: fit-content;
 }
 
 /* Fix the vuetify issue about navigation-drawer not closing because overlay to small and not fixed. */
-.v-navigation-drawer__scrim{
+.v-navigation-drawer__scrim {
   height: 100vh;
-  position:fixed !important;
+  position: fixed !important;
 }
 
 .v-btn {
@@ -37,29 +37,39 @@ a{
   text-decoration: underline;
 }
 
-h1{
+h1 {
   font-weight: bolder;
   font-size: 2.25em;
   margin-top: 2em;
   margin-bottom: 1em;
 }
-h2{
-  font-weight:bold;
+
+h2 {
+  font-weight: bold;
   font-size: 2em;
   margin-top: 1.75em;
   margin-bottom: 0.75em;
 }
-h3{
-  font-weight:normal;
+
+h3 {
+  font-weight: normal;
   font-size: 1.5em;
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
-h4{
-  font-weight:normal;
+
+h4 {
+  font-weight: normal;
   font-size: 1.25em;
   margin-top: 0.75em;
   margin-bottom: 0.36em;
+}
+
+mark {
+  font-size: 16px;
+  width: fit-content;
+  background-color: rgb(var(--v-theme-accent));
+  color: transparent;
 }
 
 @media (hover: hover) {
@@ -69,8 +79,8 @@ h4{
 }
 
 @media (max-width: 1280px) {
-  .mainContent{
-    width:95%;
+  .mainContent {
+    width: 95%;
     padding-bottom: 3em;
   }
 }

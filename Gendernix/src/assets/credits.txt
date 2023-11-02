@@ -1,0 +1,3 @@
+* inclusivity.jpg: https://pixabay.com/de/photos/inklusivit%C3%A4t-barrierefreiheit-8296770/ Author: viarami
+* JusticeIconl.vue: https://pixabay.com/de/vectors/gleichgewicht-gender-geschlecht-7879817/ Author: geralt
+* M Plus 1p: https://fonts.google.com/specimen/M+PLUS+1p Author: Coji Morishita, M+ Fonts Project License: https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL

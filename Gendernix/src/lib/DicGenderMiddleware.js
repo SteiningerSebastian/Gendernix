@@ -14,6 +14,7 @@ export class DicGenderMiddleware {
         
         //TODO: DO SOME WORK
 
-        return text;
+        //Just a very simple implementation.
+        return text.replace(new RegExp('Nutzer', 'g'), "Nutzer*innen");
     }
 }

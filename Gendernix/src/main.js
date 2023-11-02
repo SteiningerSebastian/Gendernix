@@ -24,7 +24,8 @@ import { IOCContainer } from "./lib/IOCContainer";
 import { XSSProtector } from './lib/XSSProtector';
 import { StaticTextProvider } from './lib/StaticTextProvider';
 import { TextPostProcessor } from './lib/TextPostProcessor';
-import {XSSMiddleware} from './lib/XSSMiddleware';
+import { XSSMiddleware } from './lib/XSSMiddleware';
+import { DicGenderMiddleware } from './lib/DicGenderMiddleware';
 
 //Register IOCContainer elements
 const ioc = IOCContainer.instance;
@@ -34,10 +35,10 @@ ioc.registerSingelton("IXSSProtector", new XSSProtector())
 //register the textprovider as transient to dispose it if not needed, future db-connection. 
 ioc.registerTransient("ITextProvider", () => { return new StaticTextProvider() })
 
-const tpp = new TextPostProcessor();
+const tpp = new TextPostProcessor()
 tpp.useMiddleware(new XSSMiddleware())
+tpp.useMiddleware(new DicGenderMiddleware())
 ioc.registerSingelton("ITextPostProcessor", tpp)
-
 
 // The const for all imports for internationilasitation.
 export const messages = { de, en, ar }

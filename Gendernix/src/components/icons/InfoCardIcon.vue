@@ -1,4 +1,5 @@
 <template>
+  <!-- Own creation -->
   <svg
     width="112"
     height="130"

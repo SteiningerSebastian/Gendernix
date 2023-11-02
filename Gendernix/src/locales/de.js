@@ -30,11 +30,13 @@ export default {
   'home.getstarted.tool.btn': 'Zum Online Tool',
   'home.getstarted.cms.btn': 'Mehr Erfahren',
   'gendertool.heading': 'Gendernix',
-  'gendertool.btnGender.text': 'Gendern',
+  'gendertool.btnGender.text': 'Prüfen',
   'gendertool.result': 'Ergebnis',
   'imprint.heading':'Impressum',
   'imprint.content.IUInfo': 'Diese Webseite ist das Resultat einer Fallstudie an der IU Internationale Hochschule die ichim Rahmen meines Studiums BSc. Softwareentwicklung erstellt habe. Es handelt sich hierbei um keine gewerblich betriebene Webseite.',
   'imprint.heading.contact':'Kontakt',
   'textsearch.heading': 'Textsuche',
   'textsearch.btn.search': 'Suchen',
+  'textsearch.nothingfound': "Keine Einträge gefunden.",
+  'textsearch.nothingfound.fast': "Schnellsuche hat keine Einträge gefunden. (Versuchen sie es mit den Button \"Suchen\")"
 }

@@ -12,9 +12,11 @@ items.value = textProvider.value.textIds
 const displayTextLength = 256
 
 const searchTerm = ref('')
+const searchFast = ref()
 
 //update handing for search button searches in all text and title
 function updateSearch() {
+  searchFast.value = false;
   items.value = textProvider.value.textIds.filter((id) =>
     searchTerm.value == '' ? true : filterSearch(id)
   )
@@ -22,6 +24,7 @@ function updateSearch() {
 
 //Fast update handling for input change, only searches shallow.
 function updateSearchFast() {
+  searchFast.value = true;
   items.value = textProvider.value.textIds.filter((id) =>
     searchTerm.value == '' ? true : filterSearchFast(id)
   )
@@ -75,6 +78,10 @@ function filterSearchFast(id) {
       ></div>
 
       <hr v-if="id != items[items.length - 1]" />
+    </v-container>
+    <v-container class="mt-1 mb-1" v-if="items.length === 0">
+      <h4 v-if="searchFast">{{ $t('textsearch.nothingfound.fast') }}</h4>
+      <h4 v-if="!searchFast">{{ $t('textsearch.nothingfound') }}</h4>
     </v-container>
   </div>
 </template>
