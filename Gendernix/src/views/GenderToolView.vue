@@ -17,21 +17,22 @@ watch(input, () => {
   highlights.value = []
 })
 
-function getStartIndexFromWordIndex(arr, index) {
-  let c = 0
-  for (let i = 0; i < index; i++) {
-    c += arr[i].length + 1 //+1 for the space between words
-  }
-  return c
-}
-
+//Get the index of an array where the elements are equal, closest from the start position.
 function getNextEqualIndexes(arrn, arrm, n, m) {
-  let nequal = Number.MAX_SAFE_INTEGER / 2 - 1
-  let mequal = Number.MIN_SAFE_INTEGER / 2 - 1
-  for (let ni = n; ni < arrn.length; ni++) {
-    for (let mi = m; mi < arrm.length; mi++) {
+  let nequal = Number.MAX_SAFE_INTEGER
+  let mequal = Number.MAX_SAFE_INTEGER
+  //Go through the array and search from the start position for the next equal words.
+  //Stop the loop if no more indexes to check or all checked indexes would be larger than what was already found.
+  for (let ni = n; ni < arrn.length && (ni - n) < (nequal - n); ni++) {
+    for (
+      let mi = m;
+      //Stop the loop if no more indexes to check or all checked indexes would be larger than what was already found.
+      mi < arrm.length && (ni - n + mi - m) < (nequal - n + mequal - m);
+      mi++
+    ) {
       if (arrn[ni] === arrm[mi]) {
-        if (Math.abs(nequal - mequal) > Math.abs(ni - mi)) {
+        //Found a equal word that is closer to the start position than the current found equal word.
+        if ((nequal - n + mequal - m) > (ni - n + mi - m)) {
           nequal = ni
           mequal = mi
         }
@@ -47,27 +48,37 @@ function compareAndHighlightDifference(text1, text1Raw, text2) {
   const wordsText2 = text2.split(' ')
   const wordsTest1Raw = text1Raw.split(' ')
 
+  const setPunctuationmarks = new Set(['!', '?', '.', ','])
+
   highlights.value = []
 
-  for (let i = 0, j = 0; i < wordsText1.length; i++, j++) {
+  /*Go through all words and find where the second text differs from the first text.  
+  Highlight those differences and continue to search for other differences.*/
+  for (let i = 0, j = 0, start = 0; i < wordsText1.length; i++, j++) {
+    const iStart = i
     if (wordsText1[i] !== wordsText2[j]) {
       const e = getNextEqualIndexes(wordsText1, wordsText2, i, j)
 
-      let start = getStartIndexFromWordIndex(wordsTest1Raw, i)
-      let end
-      if (e.n < wordsText1.length) {
-        end = getStartIndexFromWordIndex(wordsTest1Raw, e.n) - 1 //remove the space after the word
-      } else {
-        end = start + wordsText1[i].length
+      //Add to the end indexes.
+      let end = start - 1
+      for (let iEnd = i; iEnd < e.n && e.n < wordsTest1Raw.length; iEnd++) {
+        end += wordsTest1Raw[iEnd].length + 1
       }
 
+      //Exclude ./!/? from the highlighted text.
       const lastChar = wordsText1[i][wordsText1[i].length - 1]
-      if (lastChar == '.' || lastChar == '!' || lastChar == '?') end--
+      if (setPunctuationmarks.has(lastChar)) end--
 
       highlights.value.push({ start: start, end: end })
 
+      //Continue the search from the new equal position
       i = e.n
       j = e.m
+    }
+
+    //Add to the start index.
+    for (let c = iStart; c <= i && i < wordsTest1Raw.length; c++) {
+      start += wordsTest1Raw[c].length + 1
     }
   }
 }
@@ -165,12 +176,12 @@ h2 {
   scale: 1.3;
   cursor: pointer;
 }
-.iconContainer:hover{
+.iconContainer:hover {
   scale: 1.4;
   color: rgb(var(--v-theme-accent));
 }
 
-.iconContainer:active{
+.iconContainer:active {
   color: rgb(var(--v-theme-accent));
   scale: 1.3;
 }

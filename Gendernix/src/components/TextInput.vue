@@ -16,10 +16,10 @@ const vmTextarea = ref()
 
 //#region  Highlights
 //Inspired by: https://codersblock.com/blog/highlight-text-inside-a-textarea/
-
 const highlighted = computed(() => {
   let text = vmTextarea.value ?? ''
 
+  //Creat the array of markers an populate it with the marks as defined by the highlights.
   let markers = []
   for (let i = 0; i < props.highlights.length; i++) {
     markers.push({
@@ -33,23 +33,23 @@ const highlighted = computed(() => {
     })
   }
 
+  //Soft the array of markers by there position to calculate the position of the markers after inserting the marker before.
   markers.sort((a, b) => {
     return a.position - b.position
   })
 
-  for (let i = 0; i < markers.length; i++) {
-    for (let j = i + 1; j < markers.length; j++) {
-      markers[j].position += (markers[i].marker === 0 ? 6 : 7)
-    }
-  }
-
+  //Apply the mrkers to the text.
+  //Inspired by a ChatGPT3.5 conversation about runtime complexity.
+  let markerOffset = 0
   for (let i = 0; i < markers.length; i++) {
     const marker = markers[i]
 
     text =
-      text.substring(0, marker.position) +
+      text.substring(0, marker.position + markerOffset) +
       (marker.marker === 0 ? '<mark>' : '</mark>') +
-      text.substring(marker.position, text.length)
+      text.substring(marker.position + markerOffset, text.length)
+
+    markerOffset += markers[i].marker === 0 ? 6 : 7
   }
   return text
 })
@@ -101,7 +101,7 @@ function handleScroll(target, target1) {
   height: fit-content;
   padding: 1em;
   /* Account for scroll bar which is 12px in width as defined bellow. Textare does this automatically because it owns the scrollbar. */
-  padding-inline-end: calc(1em + 12px); 
+  padding-inline-end: calc(1em + 12px);
 }
 
 .txtArea {
