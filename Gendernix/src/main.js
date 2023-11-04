@@ -40,13 +40,14 @@ tpp.useMiddleware(new XSSMiddleware())
 tpp.useMiddleware(new DicGenderMiddleware())
 ioc.registerSingelton("ITextPostProcessor", tpp)
 
+
 // The const for all imports for internationilasitation.
 export const messages = { de, en, ar }
 
-const i18n = new createI18n({
+export const i18n = new createI18n({
   globalInjection: true,
   legacy: false,
-  locale: 'de',
+  locale: 'de' ,
   fallbackLocale: 'en',
   messages
 })

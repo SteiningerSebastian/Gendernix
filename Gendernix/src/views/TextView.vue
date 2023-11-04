@@ -3,15 +3,23 @@ import { IOCContainer } from '../lib/IOCContainer'
 import { ref } from 'vue'
 import GenderedIcon from '../components/icons/GenderedIcon.vue'
 import MaleIcon from '../components/icons/MaleIcon.vue'
+import VueHeader from '../components/VueHeader.vue'
 
 const textProvider = ref(IOCContainer.instance.resolve('ITextProvider'))
 const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor'))
 const xssProtector = ref(IOCContainer.instance.resolve('IXSSProtector'))
 
 const gender = ref(true)
+
+//Set the title of the page to the title of the text.
 </script>
 
 <template>
+  <VueHeader
+    :title=" textPostProcessor.postProcess(textProvider.getTitle($route.params.id)) + ' | Gendernix'"
+    :description="$t('description.text')"
+  />
+
   <div class="mainContent">
     <v-container style="height: fit-content" class="textContainer">
       <!-- WARNING: ALLWAYS USE {{  }} if processing user generated content, vuejs will encapsulate it automatically! 
@@ -56,11 +64,11 @@ const gender = ref(true)
   width: 32px;
 }
 
-.iconBtn:hover{
+.iconBtn:hover {
   scale: 1.1;
 }
 
-.iconBtn:active{
+.iconBtn:active {
   scale: 1;
 }
 

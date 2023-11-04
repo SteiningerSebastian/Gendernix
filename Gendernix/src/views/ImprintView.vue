@@ -1,5 +1,8 @@
-<script setup></script>
+<script setup>
+import VueHeader from '../components/VueHeader.vue'
+</script>
 <template>
+  <VueHeader :title="$t('title.imprint')" :description="$t('description.imprint')" />
   <div class="mainContent">
     <div class="justify-center text-centerma-auto ma-auto imprintContainer">
       <h1>{{ $t('imprint.heading') }}</h1>

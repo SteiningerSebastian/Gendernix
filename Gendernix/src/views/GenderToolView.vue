@@ -5,6 +5,7 @@ import TextInput from '../components/TextInput.vue'
 import { IOCContainer } from '../lib/IOCContainer'
 import { watch } from 'vue'
 import CopyIcon from '../components/icons/CopyIcon.vue'
+import VueHeader from '../components/VueHeader.vue'
 
 const text = ref('')
 const input = ref('')
@@ -113,6 +114,7 @@ function copyTextToClipboard() {
 </script>
 
 <template>
+  <VueHeader :title="$t('title.gendertool')" :description="$t('description.gendertool')" />
   <div class="mainContent mt-9">
     <v-container>
       <section>

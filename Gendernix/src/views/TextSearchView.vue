@@ -1,6 +1,7 @@
 <script setup>
 import { IOCContainer } from '../lib/IOCContainer'
 import SearchBar from '../components/SearchBar.vue'
+import VueHeader from '../components/VueHeader.vue'
 import { ref } from 'vue'
 
 const textProvider = ref(IOCContainer.instance.resolve('ITextProvider'))
@@ -16,7 +17,7 @@ const searchFast = ref()
 
 //update handing for search button searches in all text and title
 function updateSearch() {
-  searchFast.value = false;
+  searchFast.value = false
   items.value = textProvider.value.textIds.filter((id) =>
     searchTerm.value == '' ? true : filterSearch(id)
   )
@@ -24,7 +25,7 @@ function updateSearch() {
 
 //Fast update handling for input change, only searches shallow.
 function updateSearchFast() {
-  searchFast.value = true;
+  searchFast.value = true
   items.value = textProvider.value.textIds.filter((id) =>
     searchTerm.value == '' ? true : filterSearchFast(id)
   )
@@ -50,6 +51,11 @@ function filterSearchFast(id) {
 </script>
 
 <template>
+  <VueHeader
+    :title="$t('title.textsearch')"
+    :description="$t('description.textsearch')"
+  />
+
   <div class="mainContent">
     <v-container class="w-100 justify-center text-center">
       <h2>{{ $t('textsearch.heading') }}</h2>
@@ -66,7 +72,7 @@ function filterSearchFast(id) {
       :key="id"
       class="mt-1 mb-1 hover"
       style="user-select: none"
-      @click.stop="$router.push({ name: 'text', params: { id: id } })"
+      @click.stop="$router.push({ name: 'text', params: { id: id, locale: $i18n.locale } })"
     >
       <!-- WARNING: ALLWAYS USE {{  }} if processing user generated content, vuejs will encapsulate it automatically! 
           v-html is only used to comply with the assigned Task! It will not encapsulate the string, be aware of XSS !!! 

@@ -3,6 +3,7 @@ import { useLocale } from 'vuetify'
 import IconGlobe from './icons/IconGlobe.vue'
 import { ref } from 'vue'
 import { messages } from '../main'
+import router from '../router/index'
 
 const { current } = useLocale()
 const currentLang = ref(current)
@@ -12,6 +13,14 @@ languages.value = Object.keys(messages)
 //Change the locale
 function changeLocale(locale) {
   current.value = locale
+
+  //Inspired by https://lokalise.com/blog/vue-i18n/;
+  try {
+    router.replace({ params: { locale: locale } })
+  } catch (e) {
+    console.log(e)
+    router.push('/')
+  }
 }
 </script>
 
@@ -64,8 +73,7 @@ function changeLocale(locale) {
   display: flex;
 }
 
-.languageMenu:hover{
+.languageMenu:hover {
   text-decoration: underline;
 }
-
 </style>

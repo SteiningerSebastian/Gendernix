@@ -10,12 +10,12 @@ import TitleIcon from './components/TitleIcon.vue'
 import { IOCContainer } from './lib/IOCContainer'
 import { ref } from 'vue'
 import { useLocale } from 'vuetify'
+import I18nRouterLink from './components/I18nRouterLink.vue'
 
 const textProvider = ref(IOCContainer.instance.resolve('ITextProvider'))
 const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor'))
 
-const drawer = ref();
-
+const drawer = ref()
 </script>
 
 <!-- The application layout was inspired by https://vuetifyjs.com/en/features/application-layout/#complex-layouts -->
@@ -29,52 +29,56 @@ const drawer = ref();
       <div class="hidden-md-and-down ps-4" style="padding-inline-end: 87px"><TitleIcon /></div>
       <v-toolbar-title>
         <span>
-          <NavBarItem :text="$t('nav.home')" to="/" />
-          <NavBarItem :text="$t('nav.gender')" to="/gender" />
-          <NavBarItem :text="$t('nav.text')" to="/textsearch" />
+          <NavBarItem :text="$t('nav.home')" to="home" />
+          <NavBarItem :text="$t('nav.gender')" to="gendertool" />
+          <NavBarItem :text="$t('nav.text')" to="textsearch" />
         </span>
       </v-toolbar-title>
       <span class="hidden-md-and-down pe-3 pt-2"><LanguageSelector /></span>
     </v-app-bar>
-    <v-navigation-drawer
-      width="300"
-      class="navigation-drawer"
-      v-model="drawer"
-      app
+    <v-navigation-drawer width="300" class="navigation-drawer" v-model="drawer" app
       ><v-container>
         <div class="ps-3 pt-5 hidden-lg-and-up"><TitleIcon /></div>
 
         <ul class="navList">
           <li>
-            <RouterLink class="aLink" to="/">{{ $t('nav.drawer.home') }}</RouterLink>
+            <I18nRouterLink class="aLink" to="/home">{{
+              $t('nav.drawer.home')
+            }}</I18nRouterLink>
           </li>
           <li>
             <ul>
               <li>
-                <RouterLink class="aLink" to="/#gendernix">{{
+                <I18nRouterLink class="aLink" to="/home#gendernix">{{
                   $t('nav.drawer.home.gendernix')
-                }}</RouterLink>
+                }}</I18nRouterLink>
               </li>
               <li>
-                <RouterLink class="aLink" to="/#getstarted">{{
+                <I18nRouterLink class="aLink" to="/home#getstarted">{{
                   $t('nav.drawer.home.getStarted')
-                }}</RouterLink>
+                }}</I18nRouterLink>
               </li>
             </ul>
           </li>
           <li>
-            <RouterLink class="aLink" to="/gender">{{ $t('nav.drawer.home.gender') }}</RouterLink>
+            <I18nRouterLink class="aLink" to="/gender">{{
+              $t('nav.drawer.home.gender')
+            }}</I18nRouterLink>
           </li>
           <li>
-            <RouterLink class="aLink" to="/textsearch">{{ $t('nav.drawer.text') }}</RouterLink>
+            <I18nRouterLink class="aLink" to="/textsearch">{{
+              $t('nav.drawer.text')
+            }}</I18nRouterLink>
           </li>
           <li>
             <ul>
               <!-- Inspired by https://vuejs.org/guide/essentials/list.html#maintaining-state-with-key -->
               <li v-for="id in textProvider.textIds" :key="id">
-                <RouterLink class="aLink" :to="{ name: 'text', params: { id: id } }">{{
-                  textPostProcessor.postProcess(textProvider.getTitle(id))
-                }}</RouterLink>
+                <RouterLink
+                  class="aLink"
+                  :to="{ name: 'text', params: { id: id, locale: $i18n.locale } }"
+                  >{{ textPostProcessor.postProcess(textProvider.getTitle(id)) }}</RouterLink
+                >
               </li>
             </ul>
           </li>
@@ -89,18 +93,14 @@ const drawer = ref();
     </v-navigation-drawer>
 
     <!-- The content of the app, the RouterView unable to use v-main due to positioning issues -->
-    <div
-      class="main pa-0"
-      app
-      :style="{ direction: useLocale().isRtl.value ? 'rtl' : 'ltr' }"
-    >
+    <div class="main pa-0" app :style="{ direction: useLocale().isRtl.value ? 'rtl' : 'ltr' }">
       <RouterView />
     </div>
 
     <v-footer height="50" app name="footer">
       <v-container>
-        <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.imprint') }}</RouterLink>
-        <RouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.contact') }}</RouterLink>
+        <I18nRouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.imprint') }}</I18nRouterLink>
+        <I18nRouterLink class="aLink pe-6" to="/imprint">{{ $t('footer.contact') }}</I18nRouterLink>
         <a
           class="aLink pe-6"
           :href="$i18n.locale == 'de' ? '/Datenschutzerklaerung.pdf' : '/PrivacyPolicy.pdf'"
@@ -181,6 +181,4 @@ const drawer = ref();
 }
 </style>
 
-<script>
-
-</script>
+<script></script>

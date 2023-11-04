@@ -5,9 +5,11 @@ import JusticeIcon from '../components/icons/JusticeIcon.vue'
 import FileIcon from '../components/icons/FileIcon.vue'
 import InternationalisationIcon from '../components/icons/InternationalisationIcon.vue'
 import inclusivityImage from '../assets/inclusivity.jpg'
+import VueHeader from '../components/VueHeader.vue'
 </script>
 
 <template>
+  <VueHeader :title="$t('title.home')" :description="$t('description.home')" />
   <v-img :src="inclusivityImage" max-height="260px" cover rounded="0" />
   <div class="mainContent">
     <v-container>
@@ -44,28 +46,36 @@ import inclusivityImage from '../assets/inclusivity.jpg'
               <h4 class="pb-2">{{ $t('home.getstarted.tool.heading') }}</h4>
               {{ $t('home.getstarted.tool.text') }}
             </v-container>
-            <v-btn class="hidden-lg-and-up" rounded="0" to="/gender">{{
-              $t('home.getstarted.tool.btn')
-            }}</v-btn>
+            <v-btn
+              class="hidden-lg-and-up"
+              rounded="0"
+              :to="{ name: 'gendertool', params: { locale: $i18n.locale } }"
+              >{{ $t('home.getstarted.tool.btn') }}</v-btn
+            >
           </v-container>
-          <v-container class="colHome ps-0 ">
-            <v-container class="ps-0  pe-0">
+          <v-container class="colHome ps-0">
+            <v-container class="ps-0 pe-0">
               <h4 class="pb-2">{{ $t('home.getstarted.cms.heading') }}</h4>
               {{ $t('home.getstarted.cms.text') }}</v-container
             >
-            <v-btn class="hidden-lg-and-up" rounded="0" to="/imprint">{{
-              $t('home.getstarted.cms.btn')
-            }}</v-btn>
+            <v-btn
+              class="hidden-lg-and-up"
+              rounded="0"
+              :to="{ name: 'imprint', params: { locale: $i18n.locale } }"
+              >{{ $t('home.getstarted.cms.btn') }}</v-btn
+            >
           </v-container>
         </v-container>
         <v-container class="hidden-md-and-down colContainer pa-0">
           <v-container class="colHome pa-0"
-            ><v-btn rounded="0" to="/gender">{{
+            ><v-btn rounded="0" :to="{ name: 'gendertool', params: { locale: $i18n.locale } }">{{
               $t('home.getstarted.tool.btn')
             }}</v-btn></v-container
           >
           <v-container class="colHome pa-0">
-            <v-btn rounded="0" to="/imprint">{{ $t('home.getstarted.cms.btn') }}</v-btn>
+            <v-btn rounded="0" :to="{ name: 'imprint', params: { locale: $i18n.locale } }">{{
+              $t('home.getstarted.cms.btn')
+            }}</v-btn>
           </v-container>
         </v-container>
       </section>
@@ -74,7 +84,6 @@ import inclusivityImage from '../assets/inclusivity.jpg'
 </template>
 
 <style scoped>
-
 h4 {
   font-size: 1.25em;
 }

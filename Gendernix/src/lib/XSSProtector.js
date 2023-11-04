@@ -14,12 +14,7 @@ export class XSSProtector {
      */
     checkText(text) {
         //All potential harmfull characters, that should not be in texts anyways.
-        return text.includes('>') ||
-            text.includes('<') ||
-            text.includes('"') ||
-            text.includes('\'') ||
-            text.includes('{') ||
-            text.includes('}')
+        return new RegExp('[<>"\']').test(text)
     }
 
     /**

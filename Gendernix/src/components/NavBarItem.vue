@@ -3,7 +3,9 @@ const props = defineProps(['text', 'to'])
 </script>
 
 <template>
-  <v-btn :to="props.to" height="50px" rounded="0">{{ props.text }}</v-btn>
+  <v-btn :to="{ name: props.to, params: { locale: $i18n.locale } }" height="50px" rounded="0">{{
+    props.text
+  }}</v-btn>
 </template>
 
 <style scoped>

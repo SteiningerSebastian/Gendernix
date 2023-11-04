@@ -25,7 +25,7 @@ export class DicGenderMiddleware {
 
         //Just a very simple implementation.
         for (const [k, v] of Object.entries(DicGenderMiddleware.dictionary)) {
-            console.log(k, v);
+            // console.log(k, v);
             text = text.replace(new RegExp(k, 'g'), v)
         }
         return text;
