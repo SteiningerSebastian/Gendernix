@@ -7,16 +7,16 @@ export class XSSMiddleware {
     /**
      * Post process the provided text.
      *
-     * @param {string} text The text to post process by the middleware.
+     * @param {string} context The context for post process by the middleware.
      * @returns The postProcessed text is returned.
      * @memberof XSSProtector
      */
-    postProcess(text) {
-        text = this.xssProtector.correctText(text);
+    postProcess(context) {
+        context.text = this.xssProtector.correctText(context.text);
 
         if (this.next != undefined)
-            text = this.next.postProcess(text);
+            context = this.next.postProcess(context);
 
-        return text;
+        return context;
     }
 }

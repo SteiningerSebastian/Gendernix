@@ -1,3 +1,5 @@
+import { TPPContext } from './TPPContext'
+
 export class TextPostProcessor {
 
     registeredMiddlewares = [];
@@ -10,8 +12,11 @@ export class TextPostProcessor {
      * @memberof TextPostProcessor
      */
     postProcess(text) {
-        if (this.registeredMiddlewares.length > 0)
-            return this.registeredMiddlewares[0].postProcess(text);
+        if (this.registeredMiddlewares.length > 0) {
+            const context = new TPPContext();
+            context.text = text
+            return this.registeredMiddlewares[0].postProcess(context).text;
+        }
         return text;
     }
 

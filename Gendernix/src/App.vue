@@ -13,7 +13,7 @@ import { useLocale } from 'vuetify'
 import I18nRouterLink from './components/I18nRouterLink.vue'
 
 const textProvider = ref(IOCContainer.instance.resolve('ITextProvider'))
-const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor'))
+const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor-Raw-Gender'))
 
 const drawer = ref()
 </script>

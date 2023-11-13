@@ -6,8 +6,8 @@ import MaleIcon from '../components/icons/MaleIcon.vue'
 import VueHeader from '../components/VueHeader.vue'
 
 const textProvider = ref(IOCContainer.instance.resolve('ITextProvider'))
-const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor'))
-const xssProtector = ref(IOCContainer.instance.resolve('IXSSProtector'))
+const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor-HTML-Gender'))
+const textPostProcessorRaw = ref(IOCContainer.instance.resolve('ITextPostProcessor-HTML'))
 
 const gender = ref(true)
 
@@ -39,7 +39,7 @@ const gender = ref(true)
             v-html="
               gender
                 ? textPostProcessor.postProcess(textProvider.getTitle($route.params.id))
-                : xssProtector.correctText(textProvider.getTitle($route.params.id))
+                : textPostProcessorRaw.postProcess(textProvider.getTitle($route.params.id))
             "
           ></h3>
         </div>
@@ -50,7 +50,7 @@ const gender = ref(true)
         v-html="
           gender
             ? textPostProcessor.postProcess(textProvider.getText($route.params.id))
-            : xssProtector.correctText(textProvider.getText($route.params.id))
+            : textPostProcessorRaw.postProcess(textProvider.getText($route.params.id))
         "
       ></div>
     </v-container>

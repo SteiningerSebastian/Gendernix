@@ -26,6 +26,8 @@ import { StaticTextProvider } from './lib/StaticTextProvider';
 import { TextPostProcessor } from './lib/TextPostProcessor';
 import { XSSMiddleware } from './lib/XSSMiddleware';
 import { DicGenderMiddleware } from './lib/DicGenderMiddleware';
+import { SplittingMiddleware } from './lib/SplittingMiddleware'
+import { HTMLConversionMiddleware } from './lib/HTMLConversionMiddleware'
 
 //Register IOCContainer elements
 const ioc = IOCContainer.instance;
@@ -35,13 +37,33 @@ ioc.registerSingelton("IXSSProtector", new XSSProtector())
 //register the textprovider as transient to dispose it if not needed, future db-connection. 
 ioc.registerTransient("ITextProvider", () => { return new StaticTextProvider() })
 
+//Text-Post-Processor to gender text and convert to html.
 const tpp = new TextPostProcessor()
 tpp.useMiddleware(new XSSMiddleware())
+tpp.useMiddleware(new SplittingMiddleware())
 tpp.useMiddleware(new DicGenderMiddleware())
-ioc.registerSingelton("ITextPostProcessor", tpp)
+tpp.useMiddleware(new HTMLConversionMiddleware())
+ioc.registerSingelton("ITextPostProcessor-HTML-Gender", tpp)
 
+//Text-Post-Processor to gender text and convert to html.
+const tppT = new TextPostProcessor()
+tppT.useMiddleware(new XSSMiddleware())
+tppT.useMiddleware(new SplittingMiddleware())
+tppT.useMiddleware(new DicGenderMiddleware())
+ioc.registerSingelton("ITextPostProcessor-Raw-Gender", tppT)
 
-// The const for all imports for internationilasitation.
+//Raw Text-Post-Processor nothing will be gendered
+const tppRaw = new TextPostProcessor()
+tppRaw.useMiddleware(new XSSMiddleware())
+tppRaw.useMiddleware(new HTMLConversionMiddleware())
+ioc.registerSingelton("ITextPostProcessor-HTML", tppRaw)
+
+//Raw Text-Post-Processor nothing will be gendered
+const tppRawT = new TextPostProcessor()
+tppRawT.useMiddleware(new XSSMiddleware())
+ioc.registerSingelton("ITextPostProcessor-Raw", tppRawT)
+
+// The const for all imports for internationalisation.
 export const messages = { de, en, ar }
 
 export const i18n = new createI18n({

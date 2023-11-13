@@ -11,10 +11,10 @@ watch(
   },{immediate:true}
 )
 
-//Inspired by: https://stackoverflow.com/questions/2568760/is-it-possible-to-use-javascript-to-change-the-meta-tags-of-the-page
 watch(
   () => props.description,
   (newValue) => {
+    //Inspired by: https://stackoverflow.com/questions/2568760/is-it-possible-to-use-javascript-to-change-the-meta-tags-of-the-page
     document.querySelector('meta[name="description"]').setAttribute('content', newValue)
   },{immediate:true}
 )

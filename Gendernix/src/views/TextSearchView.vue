@@ -5,7 +5,7 @@ import VueHeader from '../components/VueHeader.vue'
 import { ref } from 'vue'
 
 const textProvider = ref(IOCContainer.instance.resolve('ITextProvider'))
-const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor'))
+const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor-Raw-Gender'))
 
 const items = ref()
 items.value = textProvider.value.textIds
@@ -80,7 +80,7 @@ function filterSearchFast(id) {
         -->
       <h3 class="mt-0" v-html="textPostProcessor.postProcess(textProvider.getTitle(id))"></h3>
       <div
-        v-html="textPostProcessor.postProcess(textProvider.getText(id, displayTextLength)) + '..'"
+        v-html="textPostProcessor.postProcess(textProvider.getText(id, displayTextLength) + '...')"
       ></div>
 
       <hr v-if="id != items[items.length - 1]" />

@@ -19,10 +19,7 @@ const router = createRouter({
       path: "/:locale",
       component: RouterView,
       beforeEnter: (to, _from, next) => {
-        console.log('before enter');
-
         i18n.global.locale.value = to.params.locale
-
         return next();
       },
       children: [

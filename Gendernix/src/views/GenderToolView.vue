@@ -11,7 +11,7 @@ const text = ref('')
 const input = ref('')
 const highlights = ref([]) //Array of highlights [{start: number, end: number }]
 
-const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor'))
+const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor-Raw-Gender'))
 const xssProtector = ref(IOCContainer.instance.resolve('IXSSProtector'))
 
 watch(input, () => {
