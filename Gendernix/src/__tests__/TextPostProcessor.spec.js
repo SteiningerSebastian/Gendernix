@@ -6,16 +6,16 @@ describe('Test the TextPostProcessor', () => {
         const tpp = new TextPostProcessor();
 
         const mid1 = {
-            next: undefined, postProcess(text) {
-                text = "Hello World!";
-                if (this.next != undefined) { text = this.next(text) } return text;
+            next: undefined, postProcess(context) {
+                context.text = "Hello World!";
+                if (this.next != undefined) { context = this.next(context) } return context;
             }
         }
 
         const mid2 = {
-            next: undefined, postProcess(text) {
-                text = "By World!";
-                if (this.next != undefined) { text = this.next(text) } return text;
+            next: undefined, postProcess(context) {
+                context.text = "By World!";
+                if (this.next != undefined) { context = this.next(context) } return context;
             }
         }
 
@@ -31,19 +31,19 @@ describe('Test the TextPostProcessor', () => {
 
         const mid1 = {
             next: undefined, 
-            postProcess(text) {
-                text += " World";
-                if (this.next != undefined) { text = this.next.postProcess(text) }
-                return text;
+            postProcess(context) {
+                context.text += " World";
+                if (this.next != undefined) { context = this.next.postProcess(context) }
+                return context;
             }
         }
 
         const mid2 = {
             next: undefined, 
-            postProcess(text) {
-                text += "!";
-                if (this.next != undefined) { text = this.next.postProcess(text) }
-                return text;
+            postProcess(context) {
+                context.text += "!";
+                if (this.next != undefined) { context = this.next.postProcess(context) }
+                return context;
             }
         }
 

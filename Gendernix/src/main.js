@@ -25,9 +25,10 @@ import { XSSProtector } from './lib/XSSProtector';
 import { StaticTextProvider } from './lib/StaticTextProvider';
 import { TextPostProcessor } from './lib/TextPostProcessor';
 import { XSSMiddleware } from './lib/XSSMiddleware';
-import { DicGenderMiddleware } from './lib/DicGenderMiddleware';
+import { SmartDictionaryGenderMiddleware } from './lib/SmartDictionaryGenderMiddleware';
 import { SplittingMiddleware } from './lib/SplittingMiddleware'
 import { HTMLConversionMiddleware } from './lib/HTMLConversionMiddleware'
+import { StaticDictionaryGenderMiddleware } from './lib/StaticDictionaryGenderMiddleware'
 
 //Register IOCContainer elements
 const ioc = IOCContainer.instance;
@@ -40,19 +41,21 @@ ioc.registerTransient("ITextProvider", () => { return new StaticTextProvider() }
 //Text-Post-Processor to gender text and convert to html.
 const tpp = new TextPostProcessor()
 tpp.useMiddleware(new XSSMiddleware())
+tpp.useMiddleware(new StaticDictionaryGenderMiddleware())
 tpp.useMiddleware(new SplittingMiddleware())
-tpp.useMiddleware(new DicGenderMiddleware())
+tpp.useMiddleware(new SmartDictionaryGenderMiddleware())
 tpp.useMiddleware(new HTMLConversionMiddleware())
 ioc.registerSingelton("ITextPostProcessor-HTML-Gender", tpp)
 
-//Text-Post-Processor to gender text and convert to html.
+//Text-Post-Processor to gender text.
 const tppT = new TextPostProcessor()
 tppT.useMiddleware(new XSSMiddleware())
+tppT.useMiddleware(new StaticDictionaryGenderMiddleware())
 tppT.useMiddleware(new SplittingMiddleware())
-tppT.useMiddleware(new DicGenderMiddleware())
+tppT.useMiddleware(new SmartDictionaryGenderMiddleware())
 ioc.registerSingelton("ITextPostProcessor-Raw-Gender", tppT)
 
-//Raw Text-Post-Processor nothing will be gendered
+//Raw Text-Post-Processor nothing will be gendered but converted to html
 const tppRaw = new TextPostProcessor()
 tppRaw.useMiddleware(new XSSMiddleware())
 tppRaw.useMiddleware(new HTMLConversionMiddleware())

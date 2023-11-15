@@ -45,6 +45,11 @@ const router = createRouter({
           component: () => import('../views/TextSearchView.vue')
         },
         {
+          path: 'dictionary',
+          name: 'dictionary',
+          component: () => import('../views/DictionaryView.vue')
+        },
+        {
           path: 'imprint',
           name: 'imprint',
           component: () => import('../views/Imprintview.vue')

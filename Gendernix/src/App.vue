@@ -82,6 +82,11 @@ const drawer = ref()
               </li>
             </ul>
           </li>
+          <li>
+            <I18nRouterLink class="aLink" to="/dictionary">{{
+              $t('nav.drawer.dictionary')
+            }}</I18nRouterLink>
+          </li>
         </ul>
         <div
           class="hidden-lg-and-up"

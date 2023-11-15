@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { IOCContainer } from "../lib/IOCContainer"
 import { XSSMiddleware } from "../lib/XSSMiddleware"
 import { XSSProtector } from "../lib/XSSProtector"
+import { TextPostProcessor} from '../lib/TextPostProcessor'
 
 
 describe('Test the XSSProtector-Middleware', () => {
@@ -11,7 +12,14 @@ describe('Test the XSSProtector-Middleware', () => {
         IOCContainer.instance.registerSingelton('IXSSProtector', xssP);
 
         const xss = new XSSMiddleware();
-        expect(xssP.checkText(xss.postProcess('<script>alert("hello")</script>'))).toBeFalsy();
-        expect(xssP.checkText(xss.postProcess('onClick="someFunction"'))).toBeFalsy();
+
+        let called = false
+        const tpp = new TextPostProcessor();
+        tpp.useMiddleware(xss);
+        tpp.useMiddleware({postProcess:(context)=>{called = true; return context}})
+
+        expect(xssP.checkText(tpp.postProcess('<script>alert("hello")</script>'))).toBeFalsy();
+        expect(xssP.checkText(tpp.postProcess('onClick="someFunction"'))).toBeFalsy();
+        expect(called).toBeTruthy()
     })
 })

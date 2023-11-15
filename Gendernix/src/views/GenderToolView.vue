@@ -12,7 +12,7 @@ const input = ref('')
 const highlights = ref([]) //Array of highlights [{start: number, end: number }]
 
 const textPostProcessor = ref(IOCContainer.instance.resolve('ITextPostProcessor-Raw-Gender'))
-const xssProtector = ref(IOCContainer.instance.resolve('IXSSProtector'))
+const textPostProcessorRaw = ref(IOCContainer.instance.resolve('ITextPostProcessor-Raw'))
 
 watch(input, () => {
   highlights.value = []
@@ -61,8 +61,6 @@ function compareAndHighlightDifference(text1, text1Raw, text2) {
     if (wordsText1[i] !== wordsText2[j]) {
       const e = getNextEqualIndexes(wordsText1, wordsText2, i, j)
 
-      console.log(e, wordsTest1Raw[e.n], wordsTest1Raw[e.m])
-
       //Add to the end indexes.
       let end = start - 1
       for (let iEnd = i; iEnd < e.n && e.n < wordsTest1Raw.length; iEnd++) {
@@ -85,7 +83,6 @@ function compareAndHighlightDifference(text1, text1Raw, text2) {
       start += wordsTest1Raw[c].length + 1
     }
   }
-  console.log(highlights.value)
 }
 
 //Inspired by https://bobbyhadz.com/blog/navigator-clipboard-is-undefined-in-javascript
@@ -105,7 +102,7 @@ function copyTextToClipboard() {
     try {
       document.execCommand('copy')
     } catch (err) {
-      console.log(err)
+      console.error(err)
     } finally {
       textarea.remove()
     }
@@ -124,7 +121,7 @@ function copyTextToClipboard() {
           @click="
             () => {
               text = textPostProcessor.postProcess(input)
-              compareAndHighlightDifference(xssProtector.correctText(input), input, text)
+              compareAndHighlightDifference(textPostProcessorRaw.postProcess(input), input, text)
             }
           "
           rounded="0"
