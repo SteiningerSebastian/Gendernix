@@ -8,7 +8,7 @@ export class SplittingMiddleware {
     */
   postProcess (context) {
     const text = context.text
-    const split = '/[ ,.!?]|(&lt;)|(&quot;)|(&gt;)|(&#039;)/g'
+    const split = /[ ,.!?]|(&lt;)|(&quot;)|(&gt;)|(&#039;)/
 
     let word = ''
     const liWords = []

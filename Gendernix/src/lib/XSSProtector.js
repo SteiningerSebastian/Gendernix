@@ -14,7 +14,7 @@ export class XSSProtector {
     */
   checkText (text) {
     // All potential harmfull characters, that should not be in texts anyways.
-    return '/[<>"\']/'.test(text)
+    return /[<>"\\']/.test(text)
   }
 
   /**

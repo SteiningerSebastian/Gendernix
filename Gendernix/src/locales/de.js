@@ -44,7 +44,7 @@ export default {
   'gendertool.btnGender.text': 'Prüfen',
   'gendertool.result': 'Ergebnis',
   'imprint.heading': 'Impressum',
-  'imprint.content.IUInfo': 'Diese Webseite ist das Resultat einer Fallstudie an der IU Internationale Hochschule die ichim Rahmen meines Studiums BSc. Softwareentwicklung erstellt habe. Es handelt sich hierbei um keine gewerblich betriebene Webseite.',
+  'imprint.content.IUInfo': 'Diese Webseite ist das Resultat einer Fallstudie an der IU International University of Applied Sciences die ich im Rahmen meines Studiums B.Sc. Softwareentwicklung erstellt habe. Es handelt sich hierbei um keine gewerblich betriebene Webseite.',
   'imprint.heading.contact': 'Kontakt',
   'textsearch.heading': 'Textsuche',
   'textsearch.btn.search': 'Suchen',

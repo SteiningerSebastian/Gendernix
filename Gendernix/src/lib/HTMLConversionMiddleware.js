@@ -7,7 +7,7 @@ export class HTMLConversionMiddleware {
     * @memberof XSSProtector
     */
   postProcess (context) {
-    const html = context.text.replace('/\\n/g', '</p><p>')
+    const html = context.text.replace(/\n/g, '</p><p>')
     if (html !== context.text) { context.text = '<p>' + html + '</p>' }
 
     if (this.next !== undefined) { context = this.next.postProcess(context) }
