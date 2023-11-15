@@ -19,52 +19,52 @@ import de from './locales/de'
 import en from './locales/en'
 import ar from './locales/ar'
 
-//Import custom js.
-import { IOCContainer } from "./lib/IOCContainer";
-import { XSSProtector } from './lib/XSSProtector';
-import { StaticTextProvider } from './lib/StaticTextProvider';
-import { TextPostProcessor } from './lib/TextPostProcessor';
-import { XSSMiddleware } from './lib/XSSMiddleware';
-import { SmartDictionaryGenderMiddleware } from './lib/SmartDictionaryGenderMiddleware';
+// Import custom js.
+import { IOCContainer } from './lib/IOCContainer'
+import { XSSProtector } from './lib/XSSProtector'
+import { StaticTextProvider } from './lib/StaticTextProvider'
+import { TextPostProcessor } from './lib/TextPostProcessor'
+import { XSSMiddleware } from './lib/XSSMiddleware'
+import { SmartDictionaryGenderMiddleware } from './lib/SmartDictionaryGenderMiddleware'
 import { SplittingMiddleware } from './lib/SplittingMiddleware'
 import { HTMLConversionMiddleware } from './lib/HTMLConversionMiddleware'
 import { StaticDictionaryGenderMiddleware } from './lib/StaticDictionaryGenderMiddleware'
 
-//Register IOCContainer elements
-const ioc = IOCContainer.instance;
+// Register IOCContainer elements
+const ioc = IOCContainer.instance
 
-//register the XSSProtector as singelton, implementation can be exchanged here.
-ioc.registerSingelton("IXSSProtector", new XSSProtector())
-//register the textprovider as transient to dispose it if not needed, future db-connection. 
-ioc.registerTransient("ITextProvider", () => { return new StaticTextProvider() })
+// register the XSSProtector as singelton, implementation can be exchanged here.
+ioc.registerSingelton('IXSSProtector', new XSSProtector())
+// register the textprovider as transient to dispose it if not needed, future db-connection.
+ioc.registerTransient('ITextProvider', () => { return new StaticTextProvider() })
 
-//Text-Post-Processor to gender text and convert to html.
+// Text-Post-Processor to gender text and convert to html.
 const tpp = new TextPostProcessor()
 tpp.useMiddleware(new XSSMiddleware())
 tpp.useMiddleware(new StaticDictionaryGenderMiddleware())
 tpp.useMiddleware(new SplittingMiddleware())
 tpp.useMiddleware(new SmartDictionaryGenderMiddleware())
 tpp.useMiddleware(new HTMLConversionMiddleware())
-ioc.registerSingelton("ITextPostProcessor-HTML-Gender", tpp)
+ioc.registerSingelton('ITextPostProcessor-HTML-Gender', tpp)
 
-//Text-Post-Processor to gender text.
+// Text-Post-Processor to gender text.
 const tppT = new TextPostProcessor()
 tppT.useMiddleware(new XSSMiddleware())
 tppT.useMiddleware(new StaticDictionaryGenderMiddleware())
 tppT.useMiddleware(new SplittingMiddleware())
 tppT.useMiddleware(new SmartDictionaryGenderMiddleware())
-ioc.registerSingelton("ITextPostProcessor-Raw-Gender", tppT)
+ioc.registerSingelton('ITextPostProcessor-Raw-Gender', tppT)
 
-//Raw Text-Post-Processor nothing will be gendered but converted to html
+// Raw Text-Post-Processor nothing will be gendered but converted to html
 const tppRaw = new TextPostProcessor()
 tppRaw.useMiddleware(new XSSMiddleware())
 tppRaw.useMiddleware(new HTMLConversionMiddleware())
-ioc.registerSingelton("ITextPostProcessor-HTML", tppRaw)
+ioc.registerSingelton('ITextPostProcessor-HTML', tppRaw)
 
-//Raw Text-Post-Processor nothing will be gendered
+// Raw Text-Post-Processor nothing will be gendered
 const tppRawT = new TextPostProcessor()
 tppRawT.useMiddleware(new XSSMiddleware())
-ioc.registerSingelton("ITextPostProcessor-Raw", tppRawT)
+ioc.registerSingelton('ITextPostProcessor-Raw', tppRawT)
 
 // The const for all imports for internationalisation.
 export const messages = { de, en, ar }
@@ -72,7 +72,7 @@ export const messages = { de, en, ar }
 export const i18n = new createI18n({
   globalInjection: true,
   legacy: false,
-  locale: 'de' ,
+  locale: 'de',
   fallbackLocale: 'en',
   messages
 })

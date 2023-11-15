@@ -1,9 +1,9 @@
 export class StaticTextProvider {
-    static texts =
-        {
-            coffeemachine: {
-                title: "Kaffeemaschiene",
-                text: `Mit diesem Leitfaden kann der Nutzer, seine Kaffeemaschine effizient nutzen und großartigen Kaffee zuzubereiten.
+  static texts =
+    {
+      coffeemachine: {
+        title: 'Kaffeemaschiene',
+        text: `Mit diesem Leitfaden kann der Nutzer, seine Kaffeemaschine effizient nutzen und großartigen Kaffee zuzubereiten.
  Beginnen Sie mit der Wahl eines geeigneten Standorts für Ihren Kaffeeautomaten. Achten Sie darauf, dass der Platz eben und leicht zugänglich für eine Steckdose ist. Ein guter Standort sorgt dafür, dass der Benutzer seine Kaffeemaschine bequem nutzen kann.
  Der Benutzer sollte den Wassertank öffnen und ihn mit der gewünschten Menge Wasser füllen. Die meisten Kaffeemaschinen verfügen über Markierungen, die dem Anwender helfen, die richtige Wassermenge einzufüllen. Es ist wichtig, sauberes Wasser ohne Verunreinigungen zu verwenden, um den Geschmack des Kaffees nicht zu beeinträchtigen.
  Man benötigt auch einen Filter. Der Benutzer sollte einen Filter in den Filterhalter legen, idealerweise einen Papierfilter. Diese halten feine Kaffeepartikel zurück und sorgen für einen klaren, sauberen Kaffee.
@@ -13,11 +13,11 @@ export class StaticTextProvider {
  Jeder soll nach dem Gebrauch den Kaffeeautomat ausgeschalten und reinigen. Der Benutzer entfernt den Filter und die Kanne und spült sie gründlich aus. Vergessen Sie nicht, das Gehäuse der Maschine sauber zu wischen.
  Die regelmäßige Wartung des Kaffeeautomaten ist wichtig, um eine optimale Leistung sicherzustellen. Lieber Benutzer vergessen sie nicht die Maschine in regelmäßigen Abständen zu entkalken, um Ablagerungen zu verhindern. Überprüfen Sie auch den Filter und ersetzen Sie ihn, wenn er abgenutzt ist.
  Mit dieser ausführlichen Anleitung kann der Benutzer sicherstellen, dass sein Kaffee immer perfekt ist. Genießen Sie Ihre Tasse frisch gebrühten Kaffee und starten Sie Ihren Tag mit neuer Energie.`
-            },
-            texteditor: {
+      },
+      texteditor: {
 
-                title: "Texteditor",
-                text: `Ein Textverarbeitungsprogramm stellt ein leistungsstarkes Werkzeug zur Verfügung, mit dem der Anwender Dokumente erstellen und bearbeiten kann. Einen Nutzer erklärt diese Anleitung die Schritte, die nötig sind, um das Programm effektiv zu nutzen.
+        title: 'Texteditor',
+        text: `Ein Textverarbeitungsprogramm stellt ein leistungsstarkes Werkzeug zur Verfügung, mit dem der Anwender Dokumente erstellen und bearbeiten kann. Einen Nutzer erklärt diese Anleitung die Schritte, die nötig sind, um das Programm effektiv zu nutzen.
  Um zu beginnen, öffnet man das Textverarbeitungsprogramm seiner Wahl auf dem Computer. Dies kann Microsoft Word, Google Docs oder LibreOffice Writer sein.
  Anschließend erstellt der Anwender ein neues Dokument, entweder über das Menü "Datei" und "Neu" oder mithilfe einer Tastenkombination wie Strg + N (Windows) oder Cmd + N (Mac).
  Sobald das leere Dokument bereitsteht, kann der Nutzer Text eingeben. Dieser Text kann nach Bedarf formatiert werden, indem die Formatierungsoptionen in der Symbolleiste des Programms genutzt werden. Hierbei stehen Schriftart, Schriftgröße, Fett, Kursiv, Unterstreichung und Farbe zur Verfügung.
@@ -28,11 +28,11 @@ export class StaticTextProvider {
  Nach dem Bearbeiten und Speichern des Dokuments kann der Anwender es schließen. Das Programm wird dabei fragen, ob die vorgenommenen Änderungen gespeichert werden sollen.
  Lieber Nutzer sie können einige Tastenkombinationen lernen, um die Arbeit zu beschleunigen. Beispielsweise sind Strg + C zum Kopieren, Strg + V zum Einfügen und Strg + Z zum Rückgängigmachen von Aktionen hilfreiche Werkzeuge.
  Mit dieser Anleitung kann der Anwender das Textverarbeitungsprogramm effektiv nutzen, um Dokumente nach seinen Bedürfnissen zu erstellen und zu bearbeiten.`
-            },
-            tabcalc: {
+      },
+      tabcalc: {
 
-                title: "Tabellenkalkulation",
-                text: `Sehr geehrter Nutzer, ein Tabellenkalkulationsprogramm ist ein leistungsstarkes Werkzeug zur Organisation und Analyse von Daten. Diese Anleitung erläutert, wie das Programm effektiv genutzt werden kann. 
+        title: 'Tabellenkalkulation',
+        text: `Sehr geehrter Nutzer, ein Tabellenkalkulationsprogramm ist ein leistungsstarkes Werkzeug zur Organisation und Analyse von Daten. Diese Anleitung erläutert, wie das Programm effektiv genutzt werden kann. 
  Um zu beginnen, öffnet man das Tabellenkalkulationsprogramm seiner Wahl auf dem Computer. Dies kann Microsoft Excel, Google Sheets oder LibreOffice Calc sein.
  Anschließend erstellt der Anwender ein neues Arbeitsblatt, entweder über das Menü "Datei" und "Neu" oder mithilfe einer Tastenkombination wie Strg + N (Windows) oder Cmd + N (Mac).
  Sobald das leere Arbeitsblatt bereit ist, können Daten in die Zellen eingegeben werden. Dies können Text, Zahlen und Formeln sein, abhängig von den Anforderungen.
@@ -44,37 +44,37 @@ export class StaticTextProvider {
  Nach dem Bearbeiten und Speichern des Arbeitsblatts kann das Programm geschlossen werden. Dabei wird gefragt, ob die vorgenommenen Änderungen gespeichert werden sollen.
  Zusätzlich können einige Tastenkombinationen erlernt werden, um die Arbeit zu beschleunigen, wie beispielsweise Strg + C zum Kopieren, Strg + V zum Einfügen und Strg + Z zum Rückgängigmachen von Aktionen.
  Mit dieser Anleitung sollte jeder in der Lage sein, das Tabellenkalkulationsprogramm effizient zu nutzen, um Daten zu organisieren, zu analysieren und Berichte zu erstellen. Grüße an alle anderen Autoren von technischen Dokumenten, nutzt Gendernix!.`
-            }
-        }
-
-    /**
-     * The ids of the provided texts
-     *
-     * @memberof StaticTextProvider
-     */
-    textIds = Object.keys(StaticTextProvider.texts)
-
-    /**
-     * Get the title of a text identified by its id.
-     *
-     * @param {string} textId The id of the text whiches title should be returned.
-     * @return {string} The tile of the text is returned
-     * @memberof StaticTextProvider
-     */
-    getTitle(textId) {
-        return StaticTextProvider.texts[textId].title
+      }
     }
 
-    /**
-     * Get the text of a text identified by its id.
-     *
-     * @param {string} textId The id of the text whiches text should be returned.
-     * @param {number} [length=-1] The number of characters that should be returned, default is all.
-     * @return {string} The text is returned as string. 
-     * @memberof StaticTextProvider
-     */
-    getText(textId, length = -1) {
-        const text = StaticTextProvider.texts[textId].text
-        return text.substring(0, length<0?text.length:length)
-    }
+  /**
+    * The ids of the provided texts
+    *
+    * @memberof StaticTextProvider
+    */
+  textIds = Object.keys(StaticTextProvider.texts)
+
+  /**
+    * Get the title of a text identified by its id.
+    *
+    * @param {string} textId The id of the text whiches title should be returned.
+    * @return {string} The tile of the text is returned
+    * @memberof StaticTextProvider
+    */
+  getTitle (textId) {
+    return StaticTextProvider.texts[textId].title
+  }
+
+  /**
+    * Get the text of a text identified by its id.
+    *
+    * @param {string} textId The id of the text whiches text should be returned.
+    * @param {number} [length=-1] The number of characters that should be returned, default is all.
+    * @return {string} The text is returned as string.
+    * @memberof StaticTextProvider
+    */
+  getText (textId, length = -1) {
+    const text = StaticTextProvider.texts[textId].text
+    return text.substring(0, length < 0 ? text.length : length)
+  }
 }

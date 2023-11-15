@@ -2,25 +2,25 @@ import { RouterView, createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import { i18n } from '../main'
 
-//This code is inspired by the default code provided by vue and https://lokalise.com/blog/vue-i18n/
+// This code is inspired by the default code provided by vue and https://lokalise.com/blog/vue-i18n/
 const router = createRouter({
   history: createWebHistory(),
-  //Inspired by https://router.vuejs.org/guide/advanced/scroll-behavior.html
-  scrollBehavior(to) {
+  // Inspired by https://router.vuejs.org/guide/advanced/scroll-behavior.html
+  scrollBehavior (to) {
     if (to.hash) {
       return {
         el: to.hash,
-        behavior: 'smooth',
+        behavior: 'smooth'
       }
     }
   },
   routes: [
     {
-      path: "/:locale",
+      path: '/:locale',
       component: RouterView,
       beforeEnter: (to, _from, next) => {
         i18n.global.locale.value = to.params.locale
-        return next();
+        return next()
       },
       children: [
         {
@@ -59,10 +59,10 @@ const router = createRouter({
   ]
 })
 
-//Reroute the default to home.
+// Reroute the default to home.
 router.beforeEach((to) => {
   if (to.path === '/' || to.path === '') {
-    console.log('Try to redirect.');
+    console.log('Try to redirect.')
     return { name: 'home', params: { locale: i18n.global.locale.value } }
   }
 })

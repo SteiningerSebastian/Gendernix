@@ -1,4 +1,4 @@
-export class TPPContext{
-    text = ""
-    data = {}
+export class TPPContext {
+  text = ''
+  data = {}
 }
