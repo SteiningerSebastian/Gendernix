@@ -52,8 +52,8 @@ export default {
   "textsearch.nothingfound.fast": "Die Schnellsuche hat keine Einträge gefunden. (Versuchen sie es mit den Button \"Suchen\")",
   "dictionary.heading": "Wörterbuch",
   "dictionary.description": "Das Genderwörterbuch das zum gendern der Texte werwndet wird.",
-  "dictionary.body.description.p1":"Dieses Gender-Wörterbuch wurder unter Verwendung des Nomen-Wörterbuches, das unter",
-  "dictionary.body.description.p2":"zu finden ist erstellt. Es wurde versucht die dort gelisteteten maskuline Nomen mit ihrer femininen Form in Verbindung zu bringen. Dies wurde umgesetzt indem das Nomen mit häufig verwendetete Abänderungen, wie das Anhängen von -in oder -innen an die maskuline Form des Nomens, modifiziert wurde. Ist das so entstandende Wort im Nomen-Wörterbuch zu finden, wurde es diesem Genderwörterbuch hinzugefügt.",
+  "dictionary.body.description.p1":"Das Verwendete Gender-Wörterbuch wurder unter Verwendung des Nomen-Wörterbuches, das unter",
+  "dictionary.body.description.p2":"zu finden ist, erstellt. Es wurde versucht die dort gelisteteten maskulinen Nomen mit ihrer femininen Form in Verbindung zu bringen. Dies wurde umgesetzt indem das Nomen mit häufig verwendetete Abänderungen, wie das Anhängen von -in oder -innen an die maskuline Form des Nomens, modifiziert wurde. Ist das so entstandende Wort im Nomen-Wörterbuch zu finden, wurde es diesem Gender-Wörterbuch hinzugefügt.",
   "dictionary.body.license.p1":"Es wird wie von der ",
   "dictionary.body.license.p2":"gefordert unter dieser gleichen Lizenz veröffentlicht. (Das Nomen-Wörterbuch wurde von ",
   "dictionary.body.license.p3":"abgeleitet.)"
