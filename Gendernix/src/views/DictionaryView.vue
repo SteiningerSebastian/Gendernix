@@ -18,7 +18,7 @@ const items = computed(() => {
   <div class="mainContent mt-9 mb-9">
     <VueHeader :title="$t('dictionary.heading')" :description="$t('dictionary.description')" />
     <section>
-      <SectionHeader :heading="$t('dictionary.heading')" />
+      <div class="mb-8"><SectionHeader :heading="$t('dictionary.heading')" /></div>
 
       <v-container>
         {{ $t('dictionary.body.description.p1') }}
@@ -26,7 +26,7 @@ const items = computed(() => {
           https://github.com/gambolputty/german-nouns/tree/main
         </a>
         {{ $t('dictionary.body.description.p2') }}
-        <br />
+        <br /><br />
         {{ $t('dictionary.body.license.p1') }}
         <a href="https://github.com/gambolputty/german-nouns/blob/main/LICENSE" target="_blank"
           >"Createive Commons Attribution Share Alike 4.0 International"</a
