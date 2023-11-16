@@ -9,7 +9,7 @@ export class SmartDictionaryGenderMiddleware {
     der: 'der/die',
     einer: 'eine*r',
     ein: 'ein*e',
-    einen: 'eine*r',
+    einen: 'einen*r',
     dieser: 'diese*r',
     jener: 'jene*r',
     derjenige: 'der-/die-jenige',
