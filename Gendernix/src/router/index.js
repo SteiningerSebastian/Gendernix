@@ -62,7 +62,6 @@ const router = createRouter({
 // Reroute the default to home.
 router.beforeEach((to) => {
   if (to.path === '/' || to.path === '') {
-    console.log('Try to redirect.')
     return { name: 'home', params: { locale: i18n.global.locale.value } }
   }
 })
