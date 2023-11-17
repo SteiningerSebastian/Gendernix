@@ -1,7 +1,7 @@
 {
     "source": "https://github.com/gambolputty/german-nouns/tree/main",
     "license": "Creative Commons Attribution Share Alike 4.0 International: https://github.com/gambolputty/german-nouns/blob/main/LICENSE",
-    "description": "The male and female nouns are matched, gendered and escaped to produce this derivative list of gendered words.",
+    "description": "The masculine and feminine nouns are matched together and computed gendered, to produce this derivative list of gendered words.",
     "wordlist": {
         "Aachener;False": "Aachener*in",
         "Aachener;True": "Aachener*innen",

@@ -43,7 +43,7 @@ export class StaticTextProvider {
  Das regelmäßige Speichern des Arbeitsblatts ist wichtig, um Datenverlust zu vermeiden. Dies erfolgt durch Klicken auf "Datei" und "Speichern" sowie das Festlegen des Speicherorts und Dateinamens. Für den Druck des Arbeitsblatts wählt der Nutzer erneut "Datei" und "Drucken". Dabei ist darauf zu achten, den richtigen Drucker auszuwählen und die Druckeinstellungen anzupassen.
  Nach dem Bearbeiten und Speichern des Arbeitsblatts kann das Programm geschlossen werden. Dabei wird gefragt, ob die vorgenommenen Änderungen gespeichert werden sollen.
  Zusätzlich können einige Tastenkombinationen erlernt werden, um die Arbeit zu beschleunigen, wie beispielsweise Strg + C zum Kopieren, Strg + V zum Einfügen und Strg + Z zum Rückgängigmachen von Aktionen.
- Mit dieser Anleitung sollte jeder in der Lage sein, das Tabellenkalkulationsprogramm effizient zu nutzen, um Daten zu organisieren, zu analysieren und Berichte zu erstellen. Grüße an alle anderen Autoren von technischen Dokumenten, nutzt Gendernix!.`
+ Mit dieser Anleitung sollte jeder in der Lage sein, das Tabellenkalkulationsprogramm effizient zu nutzen, um Daten zu organisieren, zu analysieren und Berichte zu erstellen. Grüße an alle anderen Autoren von technischen Dokumenten, nutzt Gendernix!`
       }
     }
 
